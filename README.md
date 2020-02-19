@@ -4,7 +4,7 @@ A micropython weather display on the TTGO 16M Bytes (128M Bit) Pro ESP32 OLED V2
 Esp32 used: TTGO 16M Bytes (128M Bit) Pro ESP32 OLED V2.0
 
 Connects to https://openweathermap.org/ api, receives current weather as json and parses it.
-Currently displays only when button GPIO0 is pressed to save battery.
+Currently displays only when button GPIO0 is pressed to save energy.
 
 How to:
 - Install micropython on esp32 via esptool: https://docs.micropython.org/en/latest/esp32/tutorial/intro.html
