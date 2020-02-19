@@ -16,3 +16,8 @@ How to:
 - Upload boot.py, ssd1306.py and main.py via webrepl (http://micropython.org/webrepl/)
 - Press the GPIO0 button to see weather
 - Profit
+
+Credits: 
+https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py
+https://randomnerdtutorials.com/micropython-oled-display-esp32-esp8266/
+https://bcmullins.github.io/parsing-json-python/
