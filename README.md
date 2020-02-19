@@ -18,6 +18,6 @@ How to:
 - Profit
 
 Credits: 
-https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py
-https://randomnerdtutorials.com/micropython-oled-display-esp32-esp8266/
-https://bcmullins.github.io/parsing-json-python/
+- https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py
+- https://randomnerdtutorials.com/micropython-oled-display-esp32-esp8266/
+- https://bcmullins.github.io/parsing-json-python/
