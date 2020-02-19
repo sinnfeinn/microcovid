@@ -88,7 +88,7 @@ while True:
     if not button.value():
         led.on()
 #get weather json data
-        response = urequests.post("http://api.openweathermap.org/data/2.5/weather?id=5746545&appid=d49b96661878b91463d9daccc71e6def&units=metric&lang=de")
+        response = urequests.post("http://api.openweathermap.org/data/2.5/weather?id=//your city id//&appid=//your api key //&units=metric")
         parsed = response.json()
 #weather parsed to display
         position_final = parsed["name"]
