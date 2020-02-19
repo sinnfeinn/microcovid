@@ -6,6 +6,9 @@ Esp32 used: TTGO 16M Bytes (128M Bit) Pro ESP32 OLED V2.0
 Connects to https://openweathermap.org/ api, receives current weather as json and parses it.
 Currently displays only when button GPIO0 is pressed to save energy.
 
+![weathermicropythonesp32ttgo](https://user-images.githubusercontent.com/936824/74887614-3cb12780-5330-11ea-8078-db183c5d1054.jpg
+)
+
 How to:
 - Install micropython on esp32 via esptool: https://docs.micropython.org/en/latest/esp32/tutorial/intro.html
 - Connect to esp32 via terminal/serial (picocom or similar) see: https://docs.micropython.org/en/latest/esp8266/tutorial/repl.html
