@@ -1,10 +1,11 @@
-# Complete project details at https://RandomNerdTutorials.com
+# Parts of this code are derived from https://RandomNerdTutorials.com, extract_element_from_json by https://bcmullins.github.io/parsing-json-python/
 
 from machine import Pin, I2C
 import ssd1306
 from time import sleep
 import urequests
 
+#extract part of the json response
 def extract_element_from_json(obj, path):
     '''
     Extracts an element from a nested dictionary or
@@ -59,14 +60,14 @@ def extract_element_from_json(obj, path):
         return outer_arr
 
 
-#define button
+# define button
 button = Pin(0, Pin.IN)
 
-#turn LED on
+# turn LED on
 led = Pin(2, Pin.OUT)
 
 
-#set reset Pin high to activate display
+# set reset Pin high to activate display (needed for banggood TTGO clone)
 pin16 = Pin(16, Pin.OUT)
 pin16.value(1)
 
@@ -82,15 +83,14 @@ oled_height = 64
 oled = ssd1306.SSD1306_I2C(oled_width, oled_height, i2c)
 
 
-
-
+# on keypress show weather
 while True:
     if not button.value():
         led.on()
-#get weather json data
+# get weather json data
         response = urequests.post("http://api.openweathermap.org/data/2.5/weather?id=//your city id//&appid=//your api key //&units=metric")
         parsed = response.json()
-#weather parsed to display
+# weather parsed to display
         position_final = parsed["name"]
         position_string = str(position_final)
         positionstr = position_string
@@ -99,19 +99,22 @@ while True:
         temp_final = extract_element_from_json(parsed, ["main", "temp"])
         temperature_string = str(temp_final)
         tempstr = temperature_string[1:-1]
-        oled.text("Temp:" + ' ' +  tempstr  + "C", 0, 10)
+        oled.text("Temp:" + ' ' + tempstr + "C", 0, 10)
         oled.show()
-        pressure_final = extract_element_from_json(parsed, ["main", "pressure"])
+        pressure_final = extract_element_from_json(
+            parsed, ["main", "pressure"])
         pressure_string = str(pressure_final)
         pressurestr = pressure_string[1:-1]
-        oled.text("Pressure:" + ' ' +  pressurestr, 0, 20)
+        oled.text("Pressure:" + ' ' + pressurestr, 0, 20)
         oled.show()
-        humidity_final = extract_element_from_json(parsed, ["main", "humidity"])
+        humidity_final = extract_element_from_json(
+            parsed, ["main", "humidity"])
         humidity_string = str(humidity_final)
         humiditystr = humidity_string[1:-1]
-        oled.text("Humidity:" + ' ' +  humiditystr, 0, 30)
+        oled.text("Humidity:" + ' ' + humiditystr, 0, 30)
         oled.show()
-        description_final = extract_element_from_json(parsed, ["weather", "description"])
+        description_final = extract_element_from_json(
+            parsed, ["weather", "description"])
         description_string = str(description_final)
         descriptionstr = description_string[2:-2]
         oled.text(descriptionstr, 0, 40)
