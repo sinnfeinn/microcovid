@@ -6,7 +6,7 @@ Esp32 used: TTGO 16M Bytes (128M Bit) Pro ESP32 OLED V2.0
 Connects to https://coronavirus-19-api.herokuapp.com api, receives current COVID-19 data as json and parses it.
 Currently displays only when button GPIO0 is pressed to save energy.
 
-![weathermicropythonesp32ttgo](https://user-images.githubusercontent.com/936824/74887614-3cb12780-5330-11ea-8078-db183c5d1054.jpg
+![microcovidpythonesp32ttgo](https://user-images.githubusercontent.com/936824/77230367-f4fd0600-6b50-11ea-9529-6f3d97d434f2.gif
 )
 
 How to:
