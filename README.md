@@ -1,9 +1,9 @@
-# microweather
-A micropython weather display on the TTGO 16M Bytes (128M Bit) Pro ESP32 OLED V2.0 using urequests and ssd1306.
+# microcovid
+A micropython COVID-19 display on the TTGO 16M Bytes (128M Bit) Pro ESP32 OLED V2.0 using urequests and ssd1306.
 
 Esp32 used: TTGO 16M Bytes (128M Bit) Pro ESP32 OLED V2.0
 
-Connects to https://openweathermap.org/ api, receives current weather as json and parses it.
+Connects to https://coronavirus-19-api.herokuapp.com api, receives current COVID-19 data as json and parses it.
 Currently displays only when button GPIO0 is pressed to save energy.
 
 ![weathermicropythonesp32ttgo](https://user-images.githubusercontent.com/936824/74887614-3cb12780-5330-11ea-8078-db183c5d1054.jpg
@@ -14,13 +14,14 @@ How to:
 - Connect to esp32 via terminal/serial (picocom or similar) see: https://docs.micropython.org/en/latest/esp8266/tutorial/repl.html
 - Configure webrepl via "import webrepl_setup"
 - Setup wifi: https://docs.micropython.org/en/latest/esp8266/tutorial/network_basics.html
-- Create free openweather map account and generate api key: https://home.openweathermap.org/users/sign_up
-- Edit main.py for your city (Line 91) and add your api key (also Line 91)
+- Select your country/countries: https://coronavirus-19-api.herokuapp.com/ + Your Country/Countries
+- Edit main.py for your Country/Countries (Line 94, 131, 168)
 - Upload boot.py, ssd1306.py and main.py via webrepl (http://micropython.org/webrepl/)
-- Press the GPIO0 button to see weather
-- Profit
+- Press the GPIO0 button to see new stats
+- Wash your hands & stay home
 
 Credits: 
+- https://github.com/javieraviles/covidAPI
 - https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py
 - https://randomnerdtutorials.com/micropython-oled-display-esp32-esp8266/
 - https://bcmullins.github.io/parsing-json-python/
