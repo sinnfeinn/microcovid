@@ -82,57 +82,129 @@ oled_width = 128
 oled_height = 64
 oled = ssd1306.SSD1306_I2C(oled_width, oled_height, i2c)
 
-
-# on keypress show weather
+# on keypress show covid data
 while True:
     if not button.value():
         led.on()
-# get weather json data
-        response = urequests.post("http://api.openweathermap.org/data/2.5/weather?id=//your city id//&appid=//your api key //&units=metric")
+# get Covid json data USA
+        response = urequests.get("https://coronavirus-19-api.herokuapp.com/countries/USA")
         parsed = response.json()
-# weather parsed to display
-        position_final = parsed["name"]
+# Data parsed to display
+        position_final = parsed["country"]
         position_string = str(position_final)
         positionstr = position_string
         oled.text("<<<" + " " + positionstr + " " + ">>>", 0, 0)
         oled.show()
-        temp_final = extract_element_from_json(parsed, ["main", "temp"])
-        temperature_string = str(temp_final)
-        tempstr = temperature_string[1:-1]
-        oled.text("Temp:" + ' ' + tempstr + "C", 0, 10)
+        cases = parsed["cases"]
+        cases_string = str(cases)
+        casesstr = cases_string
+        oled.text("Cases:" + casesstr, 0, 10)
         oled.show()
-        pressure_final = extract_element_from_json(
-            parsed, ["main", "pressure"])
-        pressure_string = str(pressure_final)
-        pressurestr = pressure_string[1:-1]
-        oled.text("Pressure:" + ' ' + pressurestr, 0, 20)
+        todayCases = parsed["todayCases"]
+        todayCases_string = str(todayCases)
+        todayCasesstr = todayCases_string
+        oled.text("New Cases:" + todayCasesstr, 0, 20)
         oled.show()
-        humidity_final = extract_element_from_json(
-            parsed, ["main", "humidity"])
-        humidity_string = str(humidity_final)
-        humiditystr = humidity_string[1:-1]
-        oled.text("Humidity:" + ' ' + humiditystr, 0, 30)
+        recovered = parsed["recovered"]
+        recovered_string = str(recovered)
+        recoveredsstr = recovered_string
+        oled.text("Recovered:" + recoveredsstr, 0, 30)
         oled.show()
-        description_final = extract_element_from_json(
-            parsed, ["weather", "description"])
-        description_string = str(description_final)
-        descriptionstr = description_string[2:-2]
-        oled.text(descriptionstr, 0, 40)
+        deaths = parsed["deaths"]
+        deaths_string = str(deaths)
+        deathssstr = deaths_string
+        oled.text("Deaths:" + deathssstr, 0, 40)
         oled.show()
-        wind_final = extract_element_from_json(parsed, ["wind", "speed"])
-        deg_final = extract_element_from_json(parsed, ["wind", "deg"])
-        wind_string = str(wind_final)
-        deg_string = str(deg_final)
-        windstr = wind_string[1:-1]
-        degstr = deg_string[1:-1]
-        oled.text("Wind:" + ' ' + windstr + "ms" + ',' + degstr + "deg", 0, 50)
+        casepermil = parsed["casesPerOneMillion"]
+        casepermil_string = str(casepermil)
+        casepermilstr = casepermil_string
+        oled.text("Cases/Mill:" + casepermilstr, 0, 50)
         oled.show()
-        sleep(4)
+        sleep(6)
         oled.fill(0)
         oled.show()
-        oled.text("Sleeping", 0, 0)
+# get Covid json data Austria
+        response2 = urequests.get("https://coronavirus-19-api.herokuapp.com/countries/Austria")
+        parsed = response2.json()
+# Data parsed to display
+        position_final = parsed["country"]
+        position_string = str(position_final)
+        positionstr = position_string
+        oled.text("<<<" + " " + positionstr + " " + ">>>", 0, 0)
         oled.show()
-        sleep(1)
+        cases = parsed["cases"]
+        cases_string = str(cases)
+        casesstr = cases_string
+        oled.text("Cases:" + casesstr, 0, 10)
+        oled.show()
+        todayCases = parsed["todayCases"]
+        todayCases_string = str(todayCases)
+        todayCasesstr = todayCases_string
+        oled.text("New Cases:" + todayCasesstr, 0, 20)
+        oled.show()
+        recovered = parsed["recovered"]
+        recovered_string = str(recovered)
+        recoveredsstr = recovered_string
+        oled.text("Recovered:" + recoveredsstr, 0, 30)
+        oled.show()
+        deaths = parsed["deaths"]
+        deaths_string = str(deaths)
+        deathssstr = deaths_string
+        oled.text("Deaths:" + deathssstr, 0, 40)
+        oled.show()
+        casepermil = parsed["casesPerOneMillion"]
+        casepermil_string = str(casepermil)
+        casepermilstr = casepermil_string
+        oled.text("Cases/Mill:" + casepermilstr, 0, 50)
+        oled.show()
+        sleep(6)
+        oled.fill(0)
+        oled.show()
+# get Covid json data Belgium
+        response3 = urequests.get("https://coronavirus-19-api.herokuapp.com/countries/Belgium")
+        parsed = response3.json()
+# Data parsed to display
+        position_final = parsed["country"]
+        position_string = str(position_final)
+        positionstr = position_string
+        oled.text("<<<" + " " + positionstr + " " + ">>>", 0, 0)
+        oled.show()
+        cases = parsed["cases"]
+        cases_string = str(cases)
+        casesstr = cases_string
+        oled.text("Cases:" + casesstr, 0, 10)
+        oled.show()
+        todayCases = parsed["todayCases"]
+        todayCases_string = str(todayCases)
+        todayCasesstr = todayCases_string
+        oled.text("New Cases:" + todayCasesstr, 0, 20)
+        oled.show()
+        recovered = parsed["recovered"]
+        recovered_string = str(recovered)
+        recoveredsstr = recovered_string
+        oled.text("Recovered:" + recoveredsstr, 0, 30)
+        oled.show()
+        deaths = parsed["deaths"]
+        deaths_string = str(deaths)
+        deathssstr = deaths_string
+        oled.text("Deaths:" + deathssstr, 0, 40)
+        oled.show()
+        casepermil = parsed["casesPerOneMillion"]
+        casepermil_string = str(casepermil)
+        casepermilstr = casepermil_string
+        oled.text("Cases/Mill:" + casepermilstr, 0, 50)
+        oled.show()
+        sleep(6)
+        oled.fill(0)
+        oled.show()
+        oled.text(">>>>>>>><<<<<<<<", 0, 0)
+        oled.text("      WASH", 0, 10)
+        oled.text("      YOUR", 0, 20)
+        oled.text("      HANDS", 0, 30)
+        oled.text("  & STAY HOME", 0, 40)
+        oled.text(">>>>>>>><<<<<<<<", 0, 50)
+        oled.show()
+        sleep(6)
     else:
         led.off()
         oled.fill(0)
